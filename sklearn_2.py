@@ -51,3 +51,13 @@ def cross_valid():
         print(round(cross_validstion.std()*100))
         print("-----------------------")
 cross_valid()
+
+
+models=[ LogisticRegression(max_iter=1000), DecisionTreeClassifier(), KNeighborsClassifier(), RandomForestClassifier(),GaussianNB(), SVC()]
+def cross_valid():
+    for models in model:
+        cross_validstion= cross_val_score(models, x, y, cv=10)
+        print(models.__class__.__name__)
+        print(round(cross_validstion.mean()*100))
+        print(round(cross_validstion.std()*100))
+        print("-----------------------")
